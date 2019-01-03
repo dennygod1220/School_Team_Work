@@ -8,6 +8,19 @@ module.exports = class Post {
     this.email = email;
     this.depName = depName;
   }
+
+
+  static EditStudent(id,body){
+    var sql = 'UPDATE student SET name = "'+body.name+'",phone = "'+body.phone+'",email ="'+body.email+'",pid = "'+body.pid+'"  WHERE sid =' + id;
+    console.log(sql);
+    
+    return db.execute(sql);
+  }
+
+  static Editshow(id){
+    return db.execute('SELECT A.sid,A.name,A.phone,A.email,A.pid,B.depName FROM student A inner join department B where A.pid = B.depid and A.sid ='+id);
+  }
+
   static show(id){
     return db.execute('SELECT A.sid,A.name,A.phone,A.email,B.depName FROM student A inner join department B where A.pid = B.depid and A.sid ='+id);
   }

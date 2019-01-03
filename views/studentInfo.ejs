@@ -13,7 +13,7 @@
     <title>Bootstrap Theme</title>
     <script>
         function editPost(id) {
-            window.location.href = "/student/edit?id=" + id;
+            window.location.href = "/edit?id=" + id;
         }
 
         function showMore(id) {
@@ -29,7 +29,7 @@
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
         <div class="container">
-            <a href="/" class="navbar-brand">Blogen</a>
+            <a href="/" class="navbar-brand">首頁</a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -102,7 +102,6 @@
                                     <th>E-mail</th>
                                     <th>系所</th>
                                     <th></th>
-                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -122,6 +121,11 @@
                                     </td>
                                     <td>
                                         <%= data[i].depName %>
+                                    </td>
+                                    <td>
+                                        <button value="Details" class="btn btn-secondary" onclick="editPost('<%= data[i].sid %>')">
+                                            <i class="fas fa-angle-double-right"></i> 編輯
+                                        </button>
                                     </td>
                                 </tr>
                                 <% } %>
@@ -187,6 +191,9 @@
                                     <td>
                                         <%= data2[i].Realize %>
                                     </td>
+                                    <button value="Details" class="btn btn-secondary" onclick="editPost('<%= data[i].sid %>')">
+                                        <i class="fas fa-angle-double-right"></i> 編輯
+                                    </button>
                                 </tr>
                                 <% } %>
                             </tbody>
